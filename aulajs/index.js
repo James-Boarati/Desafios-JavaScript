@@ -27,22 +27,34 @@ const alunosDaTurmaB = [
     {
         nome: 'Junior',
         nota: 5
+    },
+    {
+         nome: 'Mais um aluno',
+         nota: 3
     }
 ]
 
+
 function calculaMedia (alunos) {
-    return (alunos[0].nota + alunos[1].nota + alunos[2].nota) / 3
+    let soma = 0;
+    for (let i = 0; i < alunos.length; i++) {
+        soma = soma + alunos[i].nota
+    }
+
+const media = soma / alunos.length
+return media
 }
+
 const media1 = calculaMedia(alunosDaTurmaA)
 const media2 = calculaMedia(alunosDaTurmaB)
 
-
-function enviarMensagem (media) {
+function enviarMensagem (media, turma) {
     if (media > 5) {
-        console.log (`Párabens!! Sua media é de ${media}`)
+        console.log (`Párabens!! a média da ${turma} é ${media}`)
     } else {
-        console.log ('Sua média foi menor que 5')
+        console.log (`A média da ${turma} é menor que 5`)
     }
 }
-enviarMensagem(media1)
-enviarMensagem(media2)
+
+enviarMensagem(media1, 'turma A')
+enviarMensagem(media2, 'turma B')
